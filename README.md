@@ -40,14 +40,19 @@ To avoid breaking any of your existing projects, it is **highly recommended** to
    composer install
    ```
 
-5. **Install Frontend Dependencies & Build Assets**
-   (This creates the CSS/JS files and the manifest):
+5. **Install Frontend Dependencies**
+   (Run this to download the styling tools):
    ```bash
    npm install
+   ```
+
+6. **Build the Assets**
+   (Run this to create the CSS/JS files and the manifest):
+   ```bash
    npm run build
    ```
 
-6. **Copy the Environment File**
+7. **Copy the Environment File**
    ```bash
    cp .env.example .env
    ```
