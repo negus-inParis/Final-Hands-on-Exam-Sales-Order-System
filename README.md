@@ -34,13 +34,20 @@ To avoid breaking any of your existing projects, it is **highly recommended** to
    code .
    ```
 
-4. **Install Dependencies**
-   (Run this and all following commands inside the **VS Code terminal**):
+4. **Install Backend Dependencies**
+   (Run this inside the VS Code terminal):
    ```bash
    composer install
    ```
 
-5. **Copy the Environment File**
+5. **Install Frontend Dependencies & Build Assets**
+   (This creates the CSS/JS files and the manifest):
+   ```bash
+   npm install
+   npm run build
+   ```
+
+6. **Copy the Environment File**
    ```bash
    cp .env.example .env
    ```
