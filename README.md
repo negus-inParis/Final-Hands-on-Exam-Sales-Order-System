@@ -12,12 +12,16 @@ To avoid breaking any of your existing projects, it is **highly recommended** to
 2. Type the command and press **ENTER**:
 
    **Command Prompt:**
-   `cd %USERPROFILE%\Downloads`
+   ```bash
+   cd %USERPROFILE%\Downloads
+   ```
 
    **OR**
 
    **PowerShell:**
-   `cd ~\Downloads`
+   ```bash
+   cd ~\Downloads
+   ```
 
 3. Then follow the steps below.
 
