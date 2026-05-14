@@ -9,7 +9,10 @@ The code strictly follows the class notes and uses the required `Order`, `Produc
 To avoid breaking any of your existing projects, it is **highly recommended** to clone this into a fresh folder (like your **Downloads** folder).
 
 1. Open your terminal (Command Prompt or PowerShell).
-2. Type `cd ~\Downloads` and press Enter.
+2. Type this command and press **ENTER**:
+   ```bash
+   cd ~\Downloads
+   ```
 3. Then follow the steps below.
 
 ---
@@ -21,30 +24,35 @@ To avoid breaking any of your existing projects, it is **highly recommended** to
    git clone https://github.com/negus-inParis/Final-Hands-on-Exam-Sales-Order-System.git
    ```
 
-2. **Open in VS Code**
+2. **Go into the folder**
    ```bash
    cd Final-Hands-on-Exam-Sales-Order-System
+   ```
+
+3. **Open in VS Code**
+   ```bash
    code .
    ```
 
-3. **Install Dependencies**
-   Run this inside the VS Code terminal:
+4. **Install Dependencies**
+   (Run this and all following commands inside the **VS Code terminal**):
    ```bash
    composer install
    ```
 
-4. **Copy the Environment File**
+5. **Copy the Environment File**
    ```bash
    cp .env.example .env
    ```
 
-5. **Generate App Key**
+6. **Generate App Key**
    ```bash
    php artisan key:generate
    ```
 
-6. **Setup Database & Seed Data**
-   Type **yes** when it asks to create the database:
+7. **Setup Database & Seed Data**
+   Type **yes** when it asks to create the database. 
+   *(Note: If you get a "Connection Refused" error, open your `.env` file and make sure `DB_CONNECTION=sqlite` is set)*:
    ```bash
    php artisan migrate:fresh --seed
    ```
