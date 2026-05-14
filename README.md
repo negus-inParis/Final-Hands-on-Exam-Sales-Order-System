@@ -5,56 +5,65 @@ The code strictly follows the class notes and uses the required `Order`, `Produc
 
 ---
 
+## 🛠️ Step 0: Recommendation Before Cloning
+To avoid breaking any of your existing projects, it is **highly recommended** to clone this into a fresh folder (like your **Downloads** folder).
+
+1. Open your terminal (Command Prompt or PowerShell).
+2. Type `cd ~\Downloads` and press Enter.
+3. Then follow the steps below.
+
+---
+
 ## 🚀 How to Setup and Run After Cloning
 
-If you just cloned this repo from GitHub, follow these exact steps to get it running on your machine:
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/negus-inParis/Final-Hands-on-Exam-Sales-Order-System.git
+   ```
 
-1. **Install Dependencies**
-   Run this command in your VS Code terminal to install all Laravel and Filament packages:
+2. **Open in VS Code**
+   ```bash
+   cd Final-Hands-on-Exam-Sales-Order-System
+   code .
+   ```
+
+3. **Install Dependencies**
+   Run this inside the VS Code terminal:
    ```bash
    composer install
    ```
 
-2. **Copy the Environment File**
-   Create your `.env` file by copying the example file:
+4. **Copy the Environment File**
    ```bash
    cp .env.example .env
    ```
-   *(If you are on Windows Command Prompt, use `copy .env.example .env`)*
 
-3. **Generate App Key**
+5. **Generate App Key**
    ```bash
    php artisan key:generate
    ```
 
-4. **Setup Database & Seed Users/Products**
-   This single command will create the database, run the migrations, and seed all 5 required users and 5 required products. 
-   **IMPORTANT:** When it asks you "Would you like to create a database?", type **yes**.
+6. **Setup Database & Seed Data**
+   Type **yes** when it asks to create the database:
    ```bash
    php artisan migrate:fresh --seed
    ```
 
-5. **Generate Shield Permissions**
-   Kaido Kit needs permissions to work. Run this to generate the policies.
-   **IMPORTANT:** When it asks "Which panel do you want to generate permissions for?", just type `0` and press Enter.
+7. **Setup Shield Permissions**
+   Type `0` when it asks for the panel:
    ```bash
    php artisan shield:generate --all
    ```
 
-6. **Set the Super Admin**
-   Since the seeder creates the admin as the 6th user, give them super admin access:
+8. **Set Super Admin**
    ```bash
    php artisan shield:super-admin --user=6
    ```
 
-7. **Start the Server!**
+9. **Start the Website**
    ```bash
    composer run dev
    ```
-
-**Login Credentials:**
-* **Email:** `admin@admin.com`
-* **Password:** `password`
 
 ---
 
