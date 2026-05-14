@@ -1,3 +1,90 @@
+# 🎓 CS 323 Final Exam: Sales Order System
+
+This repository contains the complete, working code for the Final Hands-on Exam. 
+The code strictly follows the class notes and uses the required `Order`, `Product`, and `OrderItem` structure with Filament reactive forms.
+
+---
+
+## 🚀 How to Setup and Run After Cloning
+
+If you just cloned this repo from GitHub, follow these exact steps to get it running on your machine:
+
+1. **Install Dependencies**
+   Run this command in your VS Code terminal to install all Laravel and Filament packages:
+   ```bash
+   composer install
+   ```
+
+2. **Copy the Environment File**
+   Create your `.env` file by copying the example file:
+   ```bash
+   cp .env.example .env
+   ```
+   *(If you are on Windows Command Prompt, use `copy .env.example .env`)*
+
+3. **Generate App Key**
+   ```bash
+   php artisan key:generate
+   ```
+
+4. **Setup Database & Seed Users/Products**
+   This single command will create the database, run the migrations, and seed all 5 required users and 5 required products. 
+   **IMPORTANT:** When it asks you "Would you like to create a database?", type **yes**.
+   ```bash
+   php artisan migrate:fresh --seed
+   ```
+
+5. **Generate Shield Permissions**
+   Kaido Kit needs permissions to work. Run this to generate the policies.
+   **IMPORTANT:** When it asks "Which panel do you want to generate permissions for?", just type `0` and press Enter.
+   ```bash
+   php artisan shield:generate --all
+   ```
+
+6. **Set the Super Admin**
+   Since the seeder creates the admin as the 6th user, give them super admin access:
+   ```bash
+   php artisan shield:super-admin --user=6
+   ```
+
+7. **Start the Server!**
+   ```bash
+   composer run dev
+   ```
+
+**Login Credentials:**
+* **Email:** `admin@admin.com`
+* **Password:** `password`
+
+---
+
+## 🪄 OPTIONAL: Hiding the Admin from the Customer Dropdown
+
+In the default code provided in this repository, `admin@admin.com` will show up in the Customer dropdown when creating an order. **This is completely normal** because the exam instructions tell us to pull from the `users` table, and the admin is inside that table!
+
+However, if you want to be extra and hide the admin so that only real customers show up, you can replace the basic `user_id` relation in `app/Filament/Resources/OrderResource.php` with this **"Magic Code"**:
+
+### Find this (around line 48 in OrderResource.php):
+```php
+Select::make('user_id')
+    ->relationship('user', 'name')
+    ->searchable()
+    ->preload()
+    ->required(),
+```
+
+### Replace it with this:
+```php
+Select::make('user_id')
+    ->relationship('user', 'name', fn ($query) => $query->whereDoesntHave('roles', fn($q) => $q->where('name', 'super_admin')))
+    ->searchable()
+    ->preload()
+    ->required(),
+```
+*Note: This advanced code checks the Filament Shield roles and filters out anyone who is a `super_admin`. Use at your own risk if the teacher asks you to explain it!*
+
+---
+
 # 🚀 Kaido Kit FilamentPhp Starter Code
 
 A powerful and opinionated FilamentPHP starter kit designed to accelerate your admin panel development. Kaido Kit provides a robust foundation with pre-configured plugins, configuration and best practices for building feature-rich admin interfaces.
