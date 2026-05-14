@@ -47,6 +47,7 @@ class OrderResource extends Resource
                 Section::make('Customer\'s Detail')
                     ->schema([
                         Select::make('user_id')
+                            ->label('Customer')
                             ->relationship('user', 'name')
                             ->searchable()
                             ->preload()
