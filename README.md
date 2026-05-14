@@ -50,8 +50,14 @@ To avoid breaking any of your existing projects, it is **highly recommended** to
    php artisan key:generate
    ```
 
-7. **Setup Database & Seed Data**
-   Type **yes** when it asks to create the database. 
+7. **Create the Database File**
+   (Run this inside your terminal to create the empty SQLite file):
+   ```bash
+   New-Item -Path .\database\database.sqlite -ItemType File
+   ```
+
+8. **Setup Database & Seed Data**
+   Type **yes** when it asks to create the database (if it asks). 
    *(Note: If you get a "Connection Refused" error, open your `.env` file and make sure `DB_CONNECTION=sqlite` is set)*:
    ```bash
    php artisan migrate:fresh --seed
