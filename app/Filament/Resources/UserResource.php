@@ -17,11 +17,14 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
+    protected static ?string $modelLabel = 'Customer';
+    protected static ?string $pluralModelLabel = 'Customers';
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Section::make('User Information')->schema([
+                Section::make('Customer Information')->schema([
                     TextInput::make('name')
                         ->required(),
                     TextInput::make('email')
