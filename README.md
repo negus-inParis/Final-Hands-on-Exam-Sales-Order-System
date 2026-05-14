@@ -8,11 +8,17 @@ The code strictly follows the class notes and uses the required `Order`, `Produc
 ## 🛠️ Step 0: Recommendation Before Cloning
 To avoid breaking any of your existing projects, it is **highly recommended** to clone this into a fresh folder (like your **Downloads** folder).
 
-1. Open your terminal (Command Prompt or PowerShell).
-2. Type this command and press **ENTER**:
-   ```bash
-   cd ~\Downloads
-   ```
+1. Open your terminal (**Command Prompt** or **PowerShell**).
+2. Type the command and press **ENTER**:
+
+   **Command Prompt:**
+   `cd %USERPROFILE%\Downloads`
+
+   **OR**
+
+   **PowerShell:**
+   `cd ~\Downloads`
+
 3. Then follow the steps below.
 
 ---
